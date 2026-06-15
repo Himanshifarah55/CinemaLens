@@ -5,7 +5,8 @@ print("Loading emotion model...")
 emotion_classifier = pipeline(
     task="text-classification",
     model="j-hartmann/emotion-english-distilroberta-base",
-    top_k=None
+    top_k=None,
+    device=-1
 )
 
 print("Emotion model loaded.")
