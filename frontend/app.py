@@ -1,5 +1,15 @@
 import streamlit as st
-import requests
+import sys
+from pathlib import Path
+
+sys.path.append(
+    str(
+        Path(__file__).resolve().parent.parent
+    )
+)
+from backend.services.cinemalens_service import (
+    analyze_complete_review
+)
 
 st.set_page_config(
     page_title="CinemaLens",
@@ -26,14 +36,9 @@ if st.button("Analyze Review"):
 
         with st.spinner("Analyzing review..."):
 
-            response = requests.post(
-                "http://127.0.0.1:8000/analyze",
-                json={
-                    "review": review
-                }
+            result = analyze_complete_review(
+                review
             )
-
-            result = response.json()
 
         st.subheader("Aspect Analysis")
 
