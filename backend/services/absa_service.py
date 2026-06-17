@@ -8,7 +8,6 @@ print("Loading ABSA model...")
 
 tokenizer = AutoTokenizer.from_pretrained(
     MODEL_NAME,
-    use_fast=False
 )
 
 model = AutoModelForSequenceClassification.from_pretrained(
