@@ -12,6 +12,7 @@ numpy
 pandas
 
 requests
+tiktoken
 
 sqlalchemy
 psycopg2-binary
