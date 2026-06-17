@@ -3,7 +3,6 @@ uvicorn
 streamlit
 
 torch
-transformers
 
 spacy
 lime
@@ -19,3 +18,5 @@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0
 
 tiktoken
 torchvision
+transformers==4.41.2
+tokenizers==0.19.1
