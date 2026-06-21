@@ -1,0 +1,25 @@
+SemEval 2014 Restaurant Dataset Evaluation
+
+Total Evaluated Samples: 3602
+
+Accuracy : 78.85%
+Precision: 88.07%
+Recall   : 78.85%
+F1 Score : 80.88%
+
+Class-wise Performance
+
+Negative
+Precision: 0.95
+Recall: 0.82
+F1 Score: 0.88
+
+Neutral
+Precision: 0.46
+Recall: 0.94
+F1 Score: 0.62
+
+Positive
+Precision: 0.98
+Recall: 0.73
+F1 Score: 0.84

@@ -83,3 +83,42 @@ requirements.txt
 - Model Fine-Tuning
 - Evaluation Metrics
 - Cloud Deployment
+
+---
+
+## Evaluation Results
+
+CinemaLens was evaluated on the official SemEval 2014 Restaurant Reviews Aspect-Based Sentiment Analysis dataset.
+
+| Metric | Score |
+|----------|----------|
+| Accuracy | 78.85% |
+| Precision | 88.07% |
+| Recall | 78.85% |
+| F1 Score | 80.88% |
+
+### Confusion Matrix
+
+![Confusion Matrix](results/confusion_matrix.png)
+
+### Dataset
+
+SemEval 2014 Task 4 - Aspect Based Sentiment Analysis
+
+Total Evaluated Samples: 3602
+
+---
+
+## Architecture
+
+Review
+↓
+Aspect Extraction (spaCy)
+↓
+ABSA Classification (DeBERTa-v3)
+↓
+Emotion Detection (DistilRoBERTa)
+↓
+LIME Explainability
+↓
+Streamlit Dashboard
