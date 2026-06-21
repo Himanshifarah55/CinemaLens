@@ -61,35 +61,18 @@ if st.button("Analyze Review"):
             for explanation in aspect["explanation"]:
                 word = explanation["word"]
                 weight = explanation["weight"]
-
-                if len(word) <= 2:
-                    continue
-
-                if word.lower() in {
-                    "the",
-                    "a",
-                    "an",
-                    "and",
-                    "but",
-                    "was",
-                    "were",
-                    "is",
-                    "are"
-                }:
-                    continue
-
                 
 
                 if weight > 0:
 
-                    st.success(
-                        f"{word} (+{weight:.4f})"
+                    st.info(
+                        f"Supports prediction: {word} ({weight:+.4f})"
                     )
 
                 else:
 
-                    st.error(
-                        f"{word} ({weight:.4f})"
+                    st.warning(
+                        f"Opposes prediction: {word} ({weight:+.4f})"
                     )
 
             st.divider()

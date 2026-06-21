@@ -1,5 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ReviewRequest(BaseModel):
-    review: str
+    review: str = Field(
+        ...,
+        min_length=1,
+        max_length=2000
+    )

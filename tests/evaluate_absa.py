@@ -183,5 +183,3 @@ print(
 print(
     "tests/confusion_matrix.png"
 )
-
-plt.show()

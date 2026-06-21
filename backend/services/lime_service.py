@@ -63,6 +63,26 @@ def get_lime_explanation(
         label=predicted_class
     ):
 
+        if len(word) <= 2:
+            continue
+
+        if word.lower() in {
+            "the",
+            "a",
+            "an",
+            "and",
+            "or",
+            "but",
+            "to",
+            "of",
+            "in",
+            "on",
+            "at",
+            "for",
+            "with"
+        }:
+            continue
+
         explanation_list.append(
             {
                 "word": str(word),

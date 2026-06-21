@@ -16,7 +16,9 @@ def home():
     }
 
 @app.post("/analyze")
-def analyze_review(request: ReviewRequest):
+def analyze_review_endpoint(
+    request: ReviewRequest
+):
 
     result = analyze_complete_review(
         request.review

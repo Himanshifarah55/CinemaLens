@@ -14,15 +14,12 @@ MOVIE_ASPECTS = {
     "screenplay",
     "dialogue",
     "character",
-    "characters",
     "cinematography",
     "visual",
-    "visuals",
     "effects",
     "ending",
     "pacing",
-    "scene",
-    "scenes"
+    "scene"
 }
 
 
@@ -32,6 +29,11 @@ def extract_aspects(text: str) -> list[str]:
     found = set()
 
     for token in doc:
+        if token.pos_ not in {
+            "NOUN",
+            "PROPN"
+        }:
+            continue
         lemma = token.lemma_
 
         if lemma in MOVIE_ASPECTS:
