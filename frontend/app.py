@@ -1,5 +1,11 @@
 import streamlit as st
 import requests
+import os
+
+API_URL = os.getenv(
+    "API_URL",
+    "http://127.0.0.1:8000"
+)
 
 st.set_page_config(
     page_title="CinemaLens",
@@ -26,16 +32,43 @@ if st.button("Analyze Review"):
 
         with st.spinner("Analyzing review..."):
 
-            response = requests.post(
-                "http://127.0.0.1:8000/analyze",
-                json={
-                    "review": review
-                }
-            )
+            try:
+                response = requests.post(
+                    f"{API_URL}/analyze",
+                    json={
+                        "review": review
+                    },
+                    timeout=120
+                )
 
-            result = response.json()
+                response.raise_for_status()
 
-        st.subheader("Aspect Analysis")
+                result = response.json()
+
+            except requests.exceptions.ConnectionError:
+
+                st.error(
+                    "Cannot connect to the backend. Make sure the FastAPI server is running."
+                )
+
+                st.stop()
+            
+            except requests.exceptions.HTTPError as e:
+
+                st.error(
+                    f"Backend error: {e}"
+                )
+
+                st.stop()
+            
+            except Exception as e:
+
+                st.error(
+                    f"Unexpected error: {e}"
+                )
+
+                st.stop()
+
 
         for aspect in result["aspects"]:
 

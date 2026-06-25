@@ -24,7 +24,13 @@ from sklearn.metrics import (
 import matplotlib.pyplot as plt
 
 
-DATASET_PATH = "datasets/Restaurants_Train_v2.xml"
+ROOT = Path(__file__).resolve().parent.parent
+
+DATASET_PATH = (
+    ROOT
+    / "datasets"
+    / "Restaurants_Train_v2.xml"
+)
 
 print("Loading dataset...")
 
@@ -172,7 +178,7 @@ plt.title(
 )
 
 plt.savefig(
-    "tests/confusion_matrix.png",
+    ROOT / "tests" / "confusion_matrix.png",
     bbox_inches="tight"
 )
 

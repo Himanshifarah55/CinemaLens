@@ -1,6 +1,5 @@
 from lime.lime_text import LimeTextExplainer
 import torch
-import numpy as np
 from backend.services.absa_service import tokenizer, model
 
 
@@ -53,7 +52,7 @@ def get_lime_explanation(
         review,
         predict_proba,
         labels=[predicted_class],
-        num_features=10,
+        num_features=20,
         num_samples=200
     )
 

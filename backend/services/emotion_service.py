@@ -14,7 +14,11 @@ print("Emotion model loaded.")
 
 def analyze_emotions(text: str) -> dict:
 
-    results = emotion_classifier(text)[0]
+    results = emotion_classifier(
+            text,
+            truncation=True,
+            max_length=512
+        )[0]
 
     emotions = {}
 

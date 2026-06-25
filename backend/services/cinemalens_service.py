@@ -20,10 +20,11 @@ def analyze_complete_review(review: str):
             aspect_name
         )
 
-        result["explanation"] = explanation[:5]
-
         final_aspects.append(
-            result
+            {
+                **result,
+                "explanation": explanation[:5]
+            }
         )
 
     return {
