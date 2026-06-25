@@ -7,7 +7,8 @@ MODEL_NAME = "yangheng/deberta-v3-base-absa-v1.1"
 print("Loading ABSA model...")
 
 tokenizer = AutoTokenizer.from_pretrained(
-    MODEL_NAME
+    MODEL_NAME,
+    use_fast=False
 )
 
 model = AutoModelForSequenceClassification.from_pretrained(
